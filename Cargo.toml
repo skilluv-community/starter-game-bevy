@@ -1,0 +1,41 @@
+[package]
+name = "starter-game-bevy"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "MIT"
+description = "Skilluv starter — Bevy 0.15 top-down shooter demo."
+
+[dependencies]
+bevy = { version = "0.15", default-features = false, features = [
+    "animation",
+    "bevy_asset",
+    "bevy_audio",
+    "bevy_color",
+    "bevy_gilrs",
+    "bevy_gizmos",
+    "bevy_scene",
+    "bevy_state",
+    "bevy_ui",
+    "bevy_window",
+    "bevy_winit",
+    "default_font",
+    "multi_threaded",
+    "png",
+    "vorbis",
+    "webgl2",
+    "x11",
+] }
+rand = "0.8"
+
+# Release profile: keep it fast to build but reasonable to run.
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

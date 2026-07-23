@@ -10,7 +10,7 @@ fn main() {
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             primary_window: Some(Window {
                 title: "Skilluv starter — Bevy".into(),
-                resolution: (960.0, 540.0).into(),
+                resolution: (960.0_f32, 540.0_f32).into(),
                 canvas: Some("#bevy".into()),
                 fit_canvas_to_parent: true,
                 ..default()

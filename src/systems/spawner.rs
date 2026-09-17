@@ -3,11 +3,7 @@ use rand::Rng;
 
 use crate::components::{Enemy, EnemySpawnTimer};
 
-pub fn spawn_enemies(
-    time: Res<Time>,
-    mut commands: Commands,
-    mut timer: ResMut<EnemySpawnTimer>,
-) {
+pub fn spawn_enemies(time: Res<Time>, mut commands: Commands, mut timer: ResMut<EnemySpawnTimer>) {
     timer.0.tick(time.delta());
     if timer.0.just_finished() {
         let x = rand::thread_rng().gen_range(-400.0..400.0);

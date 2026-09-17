@@ -7,18 +7,16 @@ use components::{EnemySpawnTimer, Player, Score};
 
 fn main() {
     App::new()
-        .add_plugins(
-            DefaultPlugins.set(WindowPlugin {
-                primary_window: Some(Window {
-                    title: "Skilluv starter — Bevy".into(),
-                    resolution: (960.0, 540.0).into(),
-                    canvas: Some("#bevy".into()),
-                    fit_canvas_to_parent: true,
-                    ..default()
-                }),
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                title: "Skilluv starter — Bevy".into(),
+                resolution: (960.0_f32, 540.0_f32).into(),
+                canvas: Some("#bevy".into()),
+                fit_canvas_to_parent: true,
                 ..default()
             }),
-        )
+            ..default()
+        }))
         .insert_resource(ClearColor(Color::srgb(0.008, 0.024, 0.09)))
         .insert_resource(Score::default())
         .insert_resource(EnemySpawnTimer(Timer::from_seconds(
